@@ -1,0 +1,5 @@
+axolotl_throw:
+  power: 6
+  item_name: Thrower
+  item: blaze_rod
+  explosion_power: 10

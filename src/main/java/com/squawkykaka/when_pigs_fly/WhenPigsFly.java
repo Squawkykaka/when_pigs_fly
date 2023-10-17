@@ -1,6 +1,10 @@
 package com.squawkykaka.when_pigs_fly;
 
+import com.squawkykaka.when_pigs_fly.commands.Heal;
+import com.squawkykaka.when_pigs_fly.commands.Spawn;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public final class WhenPigsFly extends JavaPlugin {
 
@@ -9,11 +13,15 @@ public final class WhenPigsFly extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this; // Set the instance to the current plugin
-        PluginEvents pluginEvents = new PluginEvents();
-        getServer().getPluginManager().registerEvents(pluginEvents, this);
-        getServer().getPluginManager().registerEvents(new SpyglassListener(this), this);
+        saveDefaultConfig();
 
+        getServer().getPluginManager().registerEvents(new PluginEvents(), this);
+        getServer().getPluginManager().registerEvents(new AxolotlThrowListener(this), this);
+
+        Objects.requireNonNull(getCommand("spawn")).setExecutor(new Spawn());
         getLogger().info("Plugin enabled.");
+
+        new Heal();
     }
 
     @Override

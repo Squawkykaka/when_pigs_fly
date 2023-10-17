@@ -5,18 +5,15 @@ import org.bukkit.entity.Axolotl;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class SpyglassListener implements Listener {
+public class AxolotlThrowListener implements Listener {
 
     private final Plugin plugin;
 
-    public SpyglassListener(Plugin plugin) {
+    public AxolotlThrowListener(Plugin plugin) {
         this.plugin = plugin;
     }
 

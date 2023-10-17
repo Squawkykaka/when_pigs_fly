@@ -21,7 +21,7 @@
 
 
     <build>
-        <directory>C:\Users\squaw\Minecraft\Servers\1.20.2\plugins</directory>
+        <directory>C:\Users\George Leask\Minecraft\Servers\1.20.2\plugins</directory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
