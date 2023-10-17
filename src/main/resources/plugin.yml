@@ -1,0 +1,19 @@
+name: when_pigs_fly
+version: '${project.version}'
+main: com.squawkykaka.when_pigs_fly.WhenPigsFly
+api-version: '1.20'
+prefix: "when_pigs_fly"
+authors: [Squawkykaka]
+description: A plugin adding an item to make pigs fly
+website: squawkykaka.com
+commands:
+  launchpig:
+    description: Launch an explosive pig.
+    usage: /launchpig
+    permission: piglauncher.launch
+    permission-message: You don't have permission to launch pigs.
+
+permissions:
+  when_pigs_fly.axolotl_throw:
+    description: Permission to use the Axolotl ability
+    default: true
