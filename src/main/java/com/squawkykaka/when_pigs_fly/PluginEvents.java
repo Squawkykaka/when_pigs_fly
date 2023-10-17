@@ -1,5 +1,6 @@
 package com.squawkykaka.when_pigs_fly;
 
+import com.squawkykaka.when_pigs_fly.util.Msg;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -23,7 +24,7 @@ public class PluginEvents implements Listener {
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent event) {
         Bukkit.getScheduler().runTaskLater(WhenPigsFly.getInstance(), () -> {
-            event.getPlayer().sendMessage("Hello World");
+            Msg.send(event.getPlayer(), "&cWelcome to the server, my friend!");
         }, 1L);
     }
 }

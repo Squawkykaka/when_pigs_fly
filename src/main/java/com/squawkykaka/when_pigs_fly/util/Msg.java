@@ -1,4 +1,4 @@
-package com.squawkykaka.when_pigs_fly;
+package com.squawkykaka.when_pigs_fly.util;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

@@ -6,11 +6,6 @@ prefix: "when_pigs_fly"
 author: Squawkykaka
 description: A plugin adding an item to make pigs fly
 website: squawkykaka.com
-commands:
-  spawn:
-    description: Tps you to spawn
-    usage: /spawn
-    permission: when_pigs_fly.spawn
 
 permissions:
   when_pigs_fly.axolotl_throw:

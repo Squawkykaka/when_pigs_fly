@@ -1,7 +1,8 @@
 package com.squawkykaka.when_pigs_fly;
 
-import com.squawkykaka.when_pigs_fly.commands.Heal;
+import com.squawkykaka.when_pigs_fly.commands.Heal_Feed;
 import com.squawkykaka.when_pigs_fly.commands.Spawn;
+import com.squawkykaka.when_pigs_fly.util.EventUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
@@ -15,13 +16,13 @@ public final class WhenPigsFly extends JavaPlugin {
         instance = this; // Set the instance to the current plugin
         saveDefaultConfig();
 
-        getServer().getPluginManager().registerEvents(new PluginEvents(), this);
-        getServer().getPluginManager().registerEvents(new AxolotlThrowListener(this), this);
+        EventUtil.register(new AxolotlThrowListener(this));
+        EventUtil.register(new PluginEvents());
 
-        Objects.requireNonNull(getCommand("spawn")).setExecutor(new Spawn());
         getLogger().info("Plugin enabled.");
 
-        new Heal();
+        new Heal_Feed();
+        new Spawn(this);
     }
 
     @Override
