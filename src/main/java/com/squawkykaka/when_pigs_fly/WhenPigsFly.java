@@ -1,11 +1,10 @@
 package com.squawkykaka.when_pigs_fly;
 
 import com.squawkykaka.when_pigs_fly.commands.Heal_Feed;
+import com.squawkykaka.when_pigs_fly.commands.Menu;
 import com.squawkykaka.when_pigs_fly.commands.Spawn;
 import com.squawkykaka.when_pigs_fly.util.EventUtil;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.Objects;
 
 public final class WhenPigsFly extends JavaPlugin {
 
@@ -23,6 +22,7 @@ public final class WhenPigsFly extends JavaPlugin {
 
         new Heal_Feed();
         new Spawn(this);
+        new Menu(this);
     }
 
     @Override
