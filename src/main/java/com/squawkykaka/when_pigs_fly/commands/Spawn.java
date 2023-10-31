@@ -68,6 +68,7 @@ public class Spawn {
                 Player player = (Player) sender;
 
                 player.teleport(spawn);
+                Msg.send(player, "Teleported to spawn.");
                 return true;
             }
 

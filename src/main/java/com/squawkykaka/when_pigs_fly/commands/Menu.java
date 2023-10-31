@@ -2,10 +2,14 @@ package com.squawkykaka.when_pigs_fly.commands;
 
 import com.squawkykaka.when_pigs_fly.WhenPigsFly;
 import com.squawkykaka.when_pigs_fly.util.CommandBase;
+import com.squawkykaka.when_pigs_fly.util.Msg;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -48,6 +52,9 @@ public class Menu implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
+        WhenPigsFly plugin = WhenPigsFly.getPlugin(WhenPigsFly.class);
+        FileConfiguration config = plugin.getConfig();
+
         if (!event.getView().getTitle().equals(invName)) {
             return;
         }
@@ -66,14 +73,44 @@ public class Menu implements Listener {
             player.closeInventory();
         }
 
-        // TODO: slot 13 + 15. 13 is give a blaze rod named gun, 15 is run /spawn
-
         if (slot == 13) {
-            // give a blaze rod named gun
+            ItemStack gun = getItem(new ItemStack(Material.BLAZE_ROD), "Gun", "Shoots axolotls");
+            ItemMeta meta = gun.getItemMeta();
+            List<String> lores = new ArrayList<>();
+
+            meta.setDisplayName("Gun");
+            lores.add("Shoots axolotls");
+            meta.setLore(lores);
+
+            gun.setItemMeta(meta);
+            player.getInventory().addItem(gun);
         }
 
-        if (slot == 13) {
-            // tp player to spawn
+        // TODO: slot 13 + 15. 13 is give a blaze rod named gun, 15 is run /spawn
+
+        if (slot == 15) {
+
+            String worldName = config.getString("spawn.world");
+            if (worldName == null) {
+                Bukkit.getLogger().warning("spawn.world does not exist within config.yml");
+                return;
+            }
+
+            World world = Bukkit.getWorld(worldName);
+            if (world == null) {
+                Bukkit.getLogger().severe("World \"" + worldName + "\" does not exist.");
+                return;
+            }
+
+            int x = config.getInt("spawn.x");
+            int y = config.getInt("spawn.y");
+            int z = config.getInt("spawn.z");
+            float yaw = (float) config.getDouble("spawn.yaw");
+            float pitch = (float) config.getDouble("spawn.pitch");
+            Location spawn = new Location(world, x, y, z, yaw, pitch);
+
+            player.teleport(spawn);
+            Msg.send(player, "Teleported to spawn.");
         }
     }
 

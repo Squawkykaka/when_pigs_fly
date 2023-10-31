@@ -6,7 +6,7 @@
 
     <groupId>com.squawkykaka</groupId>
     <artifactId>when_pigs_fly</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>when_pigs_fly</name>
