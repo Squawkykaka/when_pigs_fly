@@ -4,6 +4,7 @@ import com.squawkykaka.when_pigs_fly.commands.Heal_Feed;
 import com.squawkykaka.when_pigs_fly.commands.Menu;
 import com.squawkykaka.when_pigs_fly.commands.Spawn;
 import com.squawkykaka.when_pigs_fly.util.EventUtil;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class WhenPigsFly extends JavaPlugin {
@@ -20,6 +21,7 @@ public final class WhenPigsFly extends JavaPlugin {
 
         getLogger().info("Plugin enabled.");
 
+        Metrics metrics = new Metrics(this, 20271);
         new Heal_Feed();
         new Spawn(this);
         new Menu(this);
