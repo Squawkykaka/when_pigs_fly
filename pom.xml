@@ -34,15 +34,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.4</version>
                 <configuration>
-                    <relocations>
-                        <relocation>
-                            <pattern>org.bstats</pattern>
-                            <!-- Replace this with your package! -->
-                            <shadedPattern>com.squawkykaka</shadedPattern>
-                        </relocation>
-                    </relocations>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                 </configuration>
                 <executions>
@@ -77,12 +70,6 @@
             <artifactId>paper-api</artifactId>
             <version>1.20.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
-            <version>3.0.2</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

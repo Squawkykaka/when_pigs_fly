@@ -4,7 +4,7 @@ import com.squawkykaka.when_pigs_fly.commands.Heal_Feed;
 import com.squawkykaka.when_pigs_fly.commands.Menu;
 import com.squawkykaka.when_pigs_fly.commands.Spawn;
 import com.squawkykaka.when_pigs_fly.util.EventUtil;
-import org.bstats.bukkit.Metrics;
+import com.squawkykaka.when_pigs_fly.util.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class WhenPigsFly extends JavaPlugin {
@@ -15,16 +15,18 @@ public final class WhenPigsFly extends JavaPlugin {
     public void onEnable() {
         instance = this; // Set the instance to the current plugin
         saveDefaultConfig();
+        getLogger().info("------------------------");
+        getLogger().info("---- Plugin Loading ----");
 
         EventUtil.register(new AxolotlThrowListener(this));
         EventUtil.register(new PluginEvents());
-
-        getLogger().info("Plugin enabled.");
-
-        Metrics metrics = new Metrics(this, 20271);
         new Heal_Feed();
         new Spawn(this);
         new Menu(this);
+        Metrics metrics = new Metrics(this, 20271);
+        getLogger().info("------------------------");
+        getLogger().info("---- Plugin enabled ----");
+        getLogger().info("------------------------");
     }
 
     @Override
